@@ -1,0 +1,156 @@
+body {
+  width: 300px;
+  font-family: Arial, sans-serif;
+  padding: 10px;
+}
+
+input[type="text"] {
+  width: 95%;
+  padding: 6px;
+  margin-bottom: 10px;
+  border-color: #7A3903;
+}
+
+button {
+  font-weight: bold;
+  align: center;
+  text-align: center;
+  width: 100%;
+  padding: 8px;
+  background-color: #FDAE1D;
+  color: #893101;
+  border-color: #EC9706;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ED820E;
+}
+
+select {
+  padding: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+#prioritySelect {
+  position: relative;
+}
+
+#prioritySelect::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+#prioritySelect option {
+  padding: 5px;
+}
+
+#prioritySelect option[value="Low"] {
+  background-color: green;
+  color: white;
+}
+
+#prioritySelect option[value="Medium"] {
+  background-color: yellow;
+  color: black;
+}
+
+#prioritySelect option[value="High"] {
+  background-color: red;
+  color: white;
+}
+
+#reminderList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reminder-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.reminder-item .reminder-box {
+  width: 96%;
+  background-color: #FFFCE9;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.reminder-item .reminder-box .reminder-text {
+  font-weight: 600;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  flex: 1;
+}
+
+.reminder-item .reminder-box .delete-button {
+  width: 10%;
+}
+
+.reminder-item .reminder-box .delete-button img {
+  width: 100%;
+}
+
+button.delete-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Style the delete icon */
+button.delete-button img {
+  width: 16px;
+  height: 16px;
+  display: inline;
+}
+
+.reminder-item .reminder-box .priority-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.reminder-item .reminder-box .priority-indicator.low {
+  background-color: green;
+}
+
+.reminder-item .reminder-box .priority-indicator.medium {
+  background-color: #E3B104;
+}
+
+.reminder-item .reminder-box .priority-indicator.high {
+  background-color: red;
+}
+
+.delete-button:hover img {
+  transform: scale(1.1);
+}
+
+
+
+.reminder-checkbox {
+  margin-right: 10px;
+  border: 1px solid black; /* Add a black border to the checkbox */
+}
+
+/* Add the following styles for completed reminders */
+.reminder-text {
+  transition: text-decoration 0.2s ease; /* Smooth transition for the text-decoration property */
+}
+
+.reminder-item.completed .reminder-text {
+  text-decoration: line-through; /* Apply strikethrough style to completed reminders */
+}
+
+

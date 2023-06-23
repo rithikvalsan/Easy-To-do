@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Easy To-do",
+  "version": "1.0",
+  "description": "A simple to-list that let's you add & view tasks easily.Brought to you by ResaGrow.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "remindericon.png"
+    }
+  },
+  "icons": {
+    "48": "remindericon.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup.html",
+        "popup.js",
+        "deleteicon.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

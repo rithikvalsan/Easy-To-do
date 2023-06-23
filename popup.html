@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reminder Extension</title>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Add a Task </h1>
+<hr> <br>
+    <div class="input-container">
+      <input type="text" id="reminderInput" placeholder="Eg: Complete pending blogs ">
+      <select id="prioritySelect">
+	<option disabled selected value="">Select an Option</option>
+        <option  value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option  value="High">High</option>
+      </select>
+      <button id="addButton">Add</button>
+    </div>
+<br><hr> <br>
+    <ul id="reminderList" class="reminder-list"></ul>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
