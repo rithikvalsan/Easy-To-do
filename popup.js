@@ -56,15 +56,19 @@ function renderReminders() {
     var reminderTextElement = document.createElement("span");
     reminderTextElement.className = "reminder-text";
     reminderTextElement.textContent = reminder.text;
+    reminderTextElement.setAttribute("data-reminder", reminder.text);
 
     var checkboxElement = document.createElement("input");
     checkboxElement.type = "checkbox";
     checkboxElement.className = "reminder-checkbox";
     checkboxElement.checked = reminder.completed;
-    checkboxElement.onchange = function() {
-      toggleCompletion(reminder);
-      renderReminders(); // Re-render the reminders to apply changes
-    };
+    checkboxElement.setAttribute("data-reminder", reminder.text);
+    checkboxElement.onchange = (function(reminder) {
+      return function() {
+        toggleCompletion(reminder);
+        renderReminders(); // Re-render the reminders to apply changes
+      };
+    })(reminder);
 
     if (reminder.completed) {
       reminderTextElement.classList.add("completed");
@@ -78,10 +82,12 @@ function renderReminders() {
 
     var deleteButtonElement = document.createElement("button");
     deleteButtonElement.className = "delete-button";
-    deleteButtonElement.onclick = function() {
-      deleteReminder(reminder);
-      renderReminders(); // Re-render the reminders after deletion
-    };
+    deleteButtonElement.onclick = (function(reminder) {
+      return function() {
+        deleteReminder(reminder);
+        renderReminders(); // Re-render the reminders after deletion
+      };
+    })(reminder);
 
     var deleteIconElement = document.createElement("img");
     deleteIconElement.src = "deleteicon.png";
@@ -95,6 +101,7 @@ function renderReminders() {
     reminderListElement.appendChild(reminderItemElement);
   }
 }
+
 
 
 function toggleCompletion(reminder) {
